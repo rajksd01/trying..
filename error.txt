@@ -1,0 +1,100 @@
+Fri Nov 15 10:02:13 UTC 2024
+/usr/bin/java -cp /tmp:/opt/amazon/conf:/opt/amazon/glue-manifest.jar com.amazonaws.services.glue.PrepareLaunch --conf spark.dynamicAllocation.enabled=true --conf spark.shuffle.service.enabled=true --conf spark.dynamicAllocation.minExecutors=1 --conf spark.dynamicAllocation.maxExecutors=9 --conf spark.executor.memory=10g --conf spark.driver.memory=10g --conf spark.network.timeout=600  --JOB_ID j_a1d31fa5132c1f60fc5d698725057519a8b22acaf3d5cf528bdd371296a24f3d --extra-py-files s3://data-batch/dependencies/dependencies.zip    --JOB_RUN_ID jr_7f4ffdbeb4a4322b12ab67077e2216413616e990e6a57ba108cc907b91cb3715   --scriptLocation s3://data-batch/scripts/  --JOB_NAME s3gluejob
+openjdk version "1.8.0_422"
+OpenJDK Runtime Environment Corretto-8.422.05.1 (build 1.8.0_422-b05)
+OpenJDK 64-Bit Server VM Corretto-8.422.05.1 (build 25.422-b05, mixed mode)
+
+1731664934101
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/opt/amazon/spark/jars/log4j-slf4j-impl-2.17.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/amazon/spark/jars/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/amazon/lib/Log4j-slf4j-2.x.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/amazon/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+INFO	2024-11-15T10:02:16,327	2820	com.amazonaws.services.glue.utils.AWSClientUtils$	[main]	AWSClientUtils: create aws log client with conf: proxy host null, proxy port -1
+INFO	2024-11-15T10:02:17,432	3925	com.amazonaws.services.glue.utils.AWSClientUtils$	[main]	AWSClientUtils: getGlueClient. proxy host: null , port: -1
+INFO	2024-11-15T10:02:18,123	4616	com.amazonaws.services.glue.utils.AWSClientUtils$	[main]	AWSClientUtils: create aws sts client with conf: proxy host null, proxy port -1
+GlueTelemetry: Current region us-east-1
+
+GlueTelemetry: Glue Endpoint https://glue.us-east-1.amazonaws.com
+GlueTelemetry: Prod env...false
+GlueTelemetry: is disabled
+GlueTelemetry: Current region us-east-1
+GlueTelemetry: Glue Endpoint https://glue.us-east-1.amazonaws.com
+GlueTelemetry: Prod env...false
+INFO	2024-11-15T10:02:18,283	4776	com.amazonaws.services.glue.PrepareLaunch	[main]	Glue Connectors: attached connection types: ListBuffer()
+successfully created /opt/aws_glue_connectors/selected/redshift
+successfully created /opt/aws_glue_connectors/selected/datalake
+successfully created /opt/aws_glue_connectors/selected/native
+successfully created /opt/aws_glue_connectors/selected/marketplace
+successfully created /opt/aws_glue_connectors/selected/downloaded
+INFO	2024-11-15T10:02:18,301	4794	com.amazonaws.services.glue.connectors.NativeConnectorService$	[main]	Glue connectors: redshift connector jar dir -> new
+INFO	2024-11-15T10:02:18,301	4794	com.amazonaws.services.glue.connectors.NativeConnectorService$	[main]	Glue connectors: copying jars and metadata for Redshift
+INFO	2024-11-15T10:02:18,315	4808	com.amazonaws.services.glue.connectors.NativeConnectorService$	[main]	 File is spark-redshift_2.12-6.1.3-spark_3.3.jar
+INFO	2024-11-15T10:02:18,315	4808	com.amazonaws.services.glue.connectors.NativeConnectorService$	[main]	 File Destination  is /opt/aws_glue_connectors/selected/redshift/spark-redshift_2.12-6.1.3-spark_3.3.jar
+INFO	2024-11-15T10:02:18,321	4814	com.amazonaws.services.glue.connectors.NativeConnectorService$	[main]	Glue connectors: Copy connector /connectors/redshift/new/spark-redshift_2.12-6.1.3-spark_3.3.jar to /opt/aws_glue_connectors/selected/redshift/spark-redshift_2.12-6.1.3-spark_3.3.jar
+INFO	2024-11-15T10:02:18,321	4814	com.amazonaws.services.glue.connectors.NativeConnectorService$	[main]	 File is spark-avro_2.12-3.3.0-amzn-1.jar
+INFO	2024-11-15T10:02:18,321	4814	com.amazonaws.services.glue.connectors.NativeConnectorService$	[main]	 File Destination  is /opt/aws_glue_connectors/selected/redshift/spark-avro_2.12-3.3.0-amzn-1.jar
+INFO	2024-11-15T10:02:18,324	4817	com.amazonaws.services.glue.connectors.NativeConnectorService$	[main]	Glue connectors: Copy connector /connectors/redshift/new/spark-avro_2.12-3.3.0-amzn-1.jar to /opt/aws_glue_connectors/selected/redshift/spark-avro_2.12-3.3.0-amzn-1.jar
+INFO	2024-11-15T10:02:18,324	4817	com.amazonaws.services.glue.connectors.NativeConnectorService$	[main]	 File is redshift-jdbc42-2.1.0.16.jar
+INFO	2024-11-15T10:02:18,324	4817	com.amazonaws.services.glue.connectors.NativeConnectorService$	[main]	 File Destination  is /opt/aws_glue_connectors/selected/redshift/redshift-jdbc42-2.1.0.16.jar
+INFO	2024-11-15T10:02:18,334	4827	com.amazonaws.services.glue.connectors.NativeConnectorService$	[main]	Glue connectors: Copy connector /connectors/redshift/new/redshift-jdbc42-2.1.0.16.jar to /opt/aws_glue_connectors/selected/redshift/redshift-jdbc42-2.1.0.16.jar
+INFO	2024-11-15T10:02:18,335	4828	com.amazonaws.services.glue.connectors.NativeConnectorService$	[main]	Glue connectors: Copy is finished
+Glue ETL Marketplace - Start ETL connector activation process...
+Glue ETL Marketplace - no connections are attached to job s3gluejob, no need to download custom connector jar for it.
+Glue ETL Marketplace - Retrieved no ETL connector jars, this may be due to no marketplace/custom connection attached to the job or failure of downloading them, please scroll back to the previous logs to find out the root cause. Container setup continues.
+Glue ETL Marketplace - ETL connector activation process finished, container setup continues...
+Download bucket: data-batch key: dependencies/dependencies.zip with usingProxy: false
+Download bucket: data-batch key: scripts/ with usingProxy: false
+Launching ...
+Fri Nov 15 10:02:33 UTC 2024
+/usr/bin/java -cp /tmp:/opt/amazon/conf:/opt/amazon/glue-manifest.jar:/opt/aws_glue_connectors/selected/redshift/*:/opt/aws_glue_connectors/selected/datalake/*::/opt/aws_glue_connectors/selected/marketplace/*:/opt/aws_glue_connectors/selected/downloaded/*:/tmp/* -Dlog4j.configurationFile=/tmp/log4j2.properties -server -Xmx10g -XX:+UseG1GC -XX:MaxHeapFreeRatio=70 -XX:InitiatingHeapOccupancyPercent=45 -XX:OnOutOfMemoryError=/opt/exception_catch/onOOMError.sh %p jr_7f4ffdbeb4a4322b12ab67077e2216413616e990e6a57ba108cc907b91cb3715 s3gluejob true false -XX:+UseCompressedOops -Djavax.net.ssl.trustStore=/opt/amazon/certs/InternalAndExternalAndAWSTrustStore.jks -Djavax.net.ssl.trustStoreType=JKS -Djavax.net.ssl.trustStorePassword=amazon -DRDS_ROOT_CERT_PATH=/opt/amazon/certs/rds-combined-ca-bundle.pem -DREDSHIFT_ROOT_CERT_PATH=/opt/amazon/certs/redshift-ssl-ca-cert.pem -DRDS_TRUSTSTORE_URL=file:/opt/amazon/certs/RDSTrustStore.jks -Dspark.network.timeout=600  -Dspark.driver.cores=4 -Dspark.sql.parquet.output.committer.
+class=com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter -Dspark.glueExceptionAnalysisEventLog.dir=/tmp/glue-exception-analysis-logs/ -Dspark.glue.GLUE_VERSION=4.0 -Dspark.default.parallelism=36 -Dspark.hadoop.mapred.output.direct.EmrFileSystem=true -Dspark.glueJobInsights.enabled=true -Dspark.glue.USE_PROXY=false -Dspark.eventLog.dir=/tmp/spark-event-logs/ -Dspark.extraListeners=com.amazonaws.services.glueexceptionanalysis.GlueExceptionAnalysisListener -Dspark.executor.instances=9 -Dspark.hadoop.fs.s3.impl=com.amazon.ws.emr.hadoop.fs.EmrFileSystem -Dspark.hadoop.hive.metastore.warehouse.dir=/tmp/spark-warehouse -Dspark.hadoop.fs.s3a.connection.maximum=500 -Dspark.driver.host=172.34.121.204 -Dspark.glue.GLUE_TASK_GROUP_ID=tg-9dd245ac3df1e1a6f8fa873ff7a5ca2afa2b730c -Dspark.glue.nativeconnectors= -Dspark.glue.enable-continuous-cloudwatch-log=false -Dspark.hadoop.mapred.output.direct.NativeS3FileSy
+stem=true -Dspark.pyspark.python=/usr/bin/python3 -Dspark.hadoop.mapreduce.fileoutputcommitter.algorithm.version=2 -Dspark.hadoop.glue.michiganCredentialsProviderProxy=com.amazonaws.services.glue.remote.LakeformationCredentialsProvider -Dspark.script.location=s3://data-batch/scripts/ -Dspark.glue.endpoint=https://glue-jes-prod.us-east-1.amazonaws.com -Dspark.app.name=nativespark-s3gluejob-jr_7f4ffdbeb4a4322b12ab67077e2216413616e990e6a57ba108cc907b91cb3715 -Dspark.ui.enabled=false -Dspark.driver.extraClassPath=/tmp:/opt/amazon/conf:/opt/amazon/glue-manifest.jar -Dspark.datasource.redshift.community.trace_id=jr_7f4ffdbeb4a4322b12ab67077e2216413616e990e6a57ba108cc907b91cb3715 -Dspark.authenticate=true -Dspark.pyFiles=dependencies.zip -Dspark.dynamicAllocation.enabled=false -Dspark.authenticate.secret=<HIDDEN> -Dspark.shuffle.service.enabled=false -Dspark.hadoop.mapred.output.committer.class=org.apache.hadoop.mapred.DirectOutputCommitter -Dspark.executor.extraClassPath=/tmp:/opt/amazon/conf:/opt/amazon/glue-manif
+est.jar  -Dspark.executor.cores=4 -Dspark.hadoop.lakeformation.credentials.url=http://localhost:9998/lakeformationcredentials -Dspark.hadoop.fs.s3.maxConnections=500 -Dspark.sql.parquet.fs.optimized.committer.optimization-enabled=true -Dspark.rpc.askTimeout=600 -Dspark.sql.shuffle.partitions=36 -Dspark.executor.memory=10g -Dspark.driver.memory=10g -Dspark.cloudwatch.logging.conf.jobRunId=jr_7f4ffdbeb4a4322b12ab67077e2216413616e990e6a57ba108cc907b91cb3715 -Dspark.hadoop.fs.s3.buffer.dir=/tmp/hadoop-spark/s3 -Dspark.glue.GLUE_COMMAND_CRITERIA=glueetl -Dspark.master=jes -Dspark.hadoop.mapreduce.fileoutputcommitter.marksuccessfuljobs=false -Dspark.unsafe.sorter.spill.read.ahead.enabled=false -Dspark.hadoop.parquet.enable.summary-metadata=false -Dspark.glue.JOB_RUN_ID=jr_7f4ffdbeb4a4322b12ab67077e2216413616e990e6a57ba108cc907b91cb3715 -Dspark.glueAppInsightsLog.dir=/tmp/glue-app-insights-logs/ -Dspark.glue.jobLanguage=python -Dspark.glue.JOB_NAME=s3gluejob -Dspark.files=dependencies.zip -Dspark.files.overwrite=tru
+e  -Dspark.dynamicAllocation.maxExecutors=9 com.amazonaws.services.glue.ProcessLauncher --launch-class org.apache.spark.deploy.PythonRunner /opt/amazon/bin/runscript.py /tmp/dependencies.zip /tmp/scripts --JOB_ID j_a1d31fa5132c1f60fc5d698725057519a8b22acaf3d5cf528bdd371296a24f3d --JOB_RUN_ID jr_7f4ffdbeb4a4322b12ab67077e2216413616e990e6a57ba108cc907b91cb3715 --JOB_NAME s3gluejob
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/opt/amazon/spark/jars/log4j-slf4j-impl-2.17.2.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/amazon/spark/jars/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/amazon/lib/Log4j-slf4j-2.x.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/opt/amazon/lib/slf4j-log4j12-1.7.10.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+Continuous Logging: Creating cloudwatch appender with AWSRegion us-east-1, AWSLogGroup /aws-glue/jobs/logs-v2, AWSLogStream jr_7f4ffdbeb4a4322b12ab67077e2216413616e990e6a57ba108cc907b91cb3715-job-insights-rca, flushInterval(sec) 5, maxRetries 5
+Continuous Logging: Creating cloudwatch appender with AWSRegion us-east-1, AWSLogGroup /aws-glue/jobs/logs-v2, AWSLogStream jr_7f4ffdbeb4a4322b12ab67077e2216413616e990e6a57ba108cc907b91cb3715-job-insights-rule, flushInterval(sec) 5, maxRetries 5
+2024-11-15 10:02:39,459 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): ==== Netty Server Started ====
+2024-11-15 10:02:39,462 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:39.460 [main] INFO  [] com.amazonaws.gluejob.app.GlueJobEventsInputHandler - Initialized events handler
+2024-11-15 10:02:39,464 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): input rulesFilePath=/tmp/glue_app_analyzer_rules
+2024-11-15 10:02:39,475 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:39.470 [pool-3-thread-1] ERROR [] com.amazonaws.gluejob.utils.FileUtils - Error getting file with getResourceAsStream 
+2024-11-15 10:02:39,475 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): java.lang.NullPointerException: null
+2024-11-15 10:02:39,475 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 	at java.io.Reader.<init>(Reader.java:78) ~[?:1.8.0_422]
+2024-11-15 10:02:39,475 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 	at java.io.InputStreamReader.<init>(InputStreamReader.java:97) ~[?:1.8.0_422]
+2024-11-15 10:02:39,475 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 	at com.amazonaws.gluejob.utils.FileUtils.readCsvFile(FileUtils.java:25) ~[AWSGlueJobLogsAnalysisLib.jar:?]
+2024-11-15 10:02:39,476 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 	at com.amazonaws.gluejob.utils.rules_generator.DroolsRuleGenerator.readCsvToGenerateDrools(DroolsRuleGenerator.java:34) ~[AWSGlueJobLogsAnalysisLib.jar:?]
+2024-11-15 10:02:39,476 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 	at com.amazonaws.gluejob.app.GlueJobEventsInputHandler.run(GlueJobEventsInputHandler.scala:36) ~[AWSGlueJobLogsAnalysisLib.jar:?]
+2024-11-15 10:02:39,476 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) ~[?:1.8.0_422]
+2024-11-15 10:02:39,476 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) ~[?:1.8.0_422]
+2024-11-15 10:02:39,476 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_422]
+2024-11-15 10:02:39,476 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:39.475 [pool-3-thread-1] INFO  [] com.amazonaws.gluejob.utils.FileUtils - Reading file using thread context class loader FailureAnalysisRules.csv
+2024-11-15 10:02:39,585 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:39.585 [pool-3-thread-1] INFO  [] com.amazonaws.gluejob.drools.RulesEngineConfig - Loaded Drools Files : [com.amazonaws.gluejob.drools.RulesEngineFactory$FilesystemBasedRulesFile@24beda3a, com.amazonaws.gluejob.drools.RulesEngineFactory$FilesystemBasedRulesFile@2f62258a, com.amazonaws.gluejob.drools.RulesEngineFactory$FilesystemBasedRulesFile@40ce14b8, com.amazonaws.gluejob.drools.RulesEngineFactory$FilesystemBasedRulesFile@5a2f107c, com.amazonaws.gluejob.drools.RulesEngineFactory$FilesystemBasedRulesFile@8927e09, com.amazonaws.gluejob.drools.RulesEngineFactory$FilesystemBasedRulesFile@366254e4, com.amazonaws.gluejob.drools.RulesEngineFactory$FilesystemBasedRulesFile@6b9ed44, com.amazonaws.gluejob.drools.RulesEngineFactory$FilesystemBasedRulesFile@2437a11f, com.amazonaws.gluejob.drools.RulesEngineFactory$FilesystemBasedRulesFile@3f4ee1a6, com.amazonaws.gluejob.drools.RulesEngineFactory$FilesystemBasedRulesFile@1
+baf47df, com.amazonaws.gluejob.drools.RulesEngineFactory$FilesystemBasedRulesFile@52354a23]
+2024-11-15 10:02:40,161 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:40.161 [pool-3-thread-1] INFO  [] com.amazonaws.gluejob.drools.DroolsRulesEngine - Loading drools rule file: /tmp/rules_generated_from_csv/Module_Not_Found_Error.drl
+2024-11-15 10:02:40,165 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:40.164 [pool-3-thread-1] INFO  [] com.amazonaws.gluejob.drools.DroolsRulesEngine - Loading drools rule file: /tmp/rules_generated_from_csv/Arithmetic_Exception_in_Glue_job.drl
+2024-11-15 10:02:40,165 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:40.165 [pool-3-thread-1] INFO  [] com.amazonaws.gluejob.drools.DroolsRulesEngine - Loading drools rule file: /tmp/rules_generated_from_csv/Analysis_Exception_Cannot_Resolve.drl
+2024-11-15 10:02:40,165 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:40.165 [pool-3-thread-1] INFO  [] com.amazonaws.gluejob.drools.DroolsRulesEngine - Loading drools rule file: /tmp/rules_generated_from_csv/JDBC_connection_failed.drl
+2024-11-15 10:02:40,165 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:40.165 [pool-3-thread-1] INFO  [] com.amazonaws.gluejob.drools.DroolsRulesEngine - Loading drools rule file: /tmp/rules_generated_from_csv/Data_with_invalid_value.drl
+2024-11-15 10:02:40,165 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:40.165 [pool-3-thread-1] INFO  [] com.amazonaws.gluejob.drools.DroolsRulesEngine - Loading drools rule file: /tmp/rule
+s_generated_from_csv/OOM_on_driver_no_heap_space_with_G2X.drl
+2024-11-15 10:02:40,165 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:40.165 [pool-3-thread-1] INFO  [] com.amazonaws.gluejob.drools.DroolsRulesEngine - Loading drools rule file: /tmp/rules_generated_from_csv/OOM_on_driver_no_heap_space_non_G2X.drl
+2024-11-15 10:02:40,165 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:40.165 [pool-3-thread-1] INFO  [] com.amazonaws.gluejob.drools.DroolsRulesEngine - Loading drools rule file: /tmp/rules_generated_from_csv/Missing_required_glue_argument.drl
+2024-11-15 10:02:40,166 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:40.166 [pool-3-thread-1] INFO  [] com.amazonaws.gluejob.drools.DroolsRulesEngine - Loading drools rule file: /tmp/rules_generated_from_csv/Missing_optional_dependency_XLRD.drl
+2024-11-15 10:02:40,166 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:40.166 [pool-3-thread-1] INFO  [] com.amazonaws.gluejob.drools.DroolsRulesEngine - Loading drools rule file: /tmp/rules_generated_from_csv/Type_error_on_endpoint_config.drl
+2024-11-15 10:02:40,167 INFO [Thread-3] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): 10:02:40.166 [pool-3-thread-1] INFO  [] com.amazonaws.gluejob.drools.DroolsRulesEngine - Loading drools rule file: /tmp/rules_generated_from_csv/Name_error_in_glue_app.drl
+2024-11-15 10:02:41,803 INFO [main] glue.ProcessLauncher (Logging.scala:logInfo(61)): postprocessing
+2024-11-15 10:02:41,804 INFO [main] glue.AnalyzerLogHelper$ (Logging.scala:logInfo(24)): Analyzer stopped
+2024-11-15 10:02:41,812 INFO [main] glue.ProcessLauncher (Logging.scala:logInfo(61)): postprocessing finished
+Continuous Logging: Shutting down cloudwatch appender.
+
+Continuous Logging: Shutting down cloudwatch appender.
+2024-11-15 10:02:41,828 INFO [shutdown-hook-0] util.ShutdownHookManager (Logging.scala:logInfo(61)): Shutdown hook called
